@@ -68,7 +68,7 @@ Adjusts Workbox configuration. Pass a function which will be called with the cur
 
 ### addWebWorker(fn)
 
-Add Worker support using [worker-plugin](https://github.com/GoogleChromeLabs/worker-plugin).
+Add Worker support using [worker-loader](https://github.com/webpack-contrib/worker-loader).
 
 ## Using the plugins
 
