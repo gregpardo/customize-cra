@@ -69,6 +69,20 @@ const adjustWorkbox = adjust => config => {
   return config;
 };
 
+const addWebWorker = _ => config => {
+  config.module.rules.push({
+    test: /\.worker\.js$/,
+    use: [
+      { loader: 'worker-loader' }
+    ]
+  });
+  config.output = Object.assign(
+    config.output,
+    { globalObject: 'this' }
+  );
+  return config;
+};
+
 const override = (...plugins) => flow(...plugins.filter(f => f));
 
 module.exports = {
@@ -78,5 +92,6 @@ module.exports = {
   addDecoratorsLegacy,
   disableEsLint,
   addWebpackAlias,
-  adjustWorkbox
+  adjustWorkbox,
+  addWebWorker
 };
